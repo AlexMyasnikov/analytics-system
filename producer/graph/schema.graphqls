@@ -1,0 +1,32 @@
+scalar int64
+
+type Event {
+  id: ID!
+  eventType: String
+  path: String
+  search: String
+  title: String
+  url: String
+  userId: String
+}
+
+type PingResponse {
+  message: String!
+}
+
+input RegisterKafkaEventInput {
+  eventType: String!
+  userId: String!
+  path: String!
+  search: String!
+  title: String!
+  url: String!
+}
+
+type Mutation {
+  register_kafka_event(event: RegisterKafkaEventInput!): Event!
+}
+
+type Query {
+  ping: PingResponse
+}
